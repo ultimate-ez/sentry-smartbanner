@@ -9,10 +9,15 @@ Autohr URI: https://ultimate-ez.com
 License: GPL2
 */
 
-add_action('wp_footer', 'helloworld');
+class Sentry_SmartBanner {
 
-function helloworld(){
-  echo "--- Hello world ---";
+  public function __construct() {
+    add_action('wp_footer', array( $this, 'helloworld' ) );
+  }
+
+  public function helloworld(){
+    echo "<p class='sentry_smartbanner'>Hello world</p>";
+  }
 }
-
+new Sentry_SmartBanner();
 ?>
